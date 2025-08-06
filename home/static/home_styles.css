@@ -4,11 +4,12 @@
 body {
     background-color: white;
     color: white;
+    font-size: 16px;
     margin: 0;
     padding: 0;
 }
 main {
-    padding: 20px;
+    padding: 40px;
     margin: auto;
     border-radius: 5px;
 }
@@ -20,4 +21,21 @@ nav ul li {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+h1, h2, p {
+    padding-bottom: 20px;
+}
+a {
+    text-decoration: none;
+    color: blue;
+}
+a:hover {
+    text-decoration: underline;
+}
+.menu_item {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
 }
