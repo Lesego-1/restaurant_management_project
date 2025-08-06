@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" type="text/css" href="{% static '404_styles.css' %}">
+    <body>
+        <main>
+            <h1>Opps!</h1>
+            <h2>We can't seem to find the page you are looking for.</h2>
+            <p>
+                This page may have been moved or deleted, or maybe you mistyped the address.
+            </p>
+            <a href="{% url 'home' %}">Return Home</a>
+        </main>
+    </body>
+</html>
