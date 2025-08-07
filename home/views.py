@@ -8,13 +8,11 @@ from rest_framework.decorators import api_view
 def display_home_page_name(request):
     restaurant_name = Restaurant.objects.first()
     if restaurant_name:
-        return render(request, "homepage.html", {"restaurant_name":Restaurant.objects.first().name})
+        return render(request, "homepage.html", {"restaurant_name":restaurant_name.name})
     return render(request, "homepage.html")
 
-@api_view['GET']
+@api_view(['GET'])
 def menu_item_view(request):
     items = MenuItem.objects.all()
     serializer = MenuItemSerializer(items, many=True)
-    if serializer.is_valid():
-        return Response(serializer.data, status=status.HTTP_200_OK)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    return Response(serializer.data, status=status.HTTP_200_OK)
