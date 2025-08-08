@@ -6,10 +6,11 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 
 def display_home_page_name(request):
-    restaurant = Restaurant.objects.first()
-    if restaurant:
+    try:
+        restaurant = Restaurant.objects.first()
         return render(request, "homepage.html", {"restaurant_name":restaurant.name, 'restaurant_phone_number':restaurant.phone_number})
-    return render(request, "homepage.html")
+    except Restaurant.DoesNotExist:
+        return render(request, "homepage.html")
 
 @api_view(['GET'])
 def menu_item_view(request):
