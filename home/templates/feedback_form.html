@@ -8,10 +8,12 @@
     <body>
         <main>
             <h1>Feeback Form</h1>
-            <label for="comments">
-                <textarea id="comments" cols="26" rows="10">
-            </label>
-            <input type="submit" name="submit" id="submit">
+            <form method="POST" action="{% url 'feedback_form' %}">
+                <label for="comments">
+                    <textarea id="comments" cols="26" rows="10" name="comments">
+                </label>
+                <input type="submit" name="submit" id="submit">
+            </form>
         </main>
         <footer>
             <p>Mon-Fri: 11:00-21:00, Sat-Sun: 10:00-22:00</p>
