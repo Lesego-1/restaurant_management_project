@@ -9,6 +9,11 @@
         <main>
             <h1>Contact Us</h1>
             <p>For any kind of support, feel free to contact us at support@restaurantmanagement.com or call 000 000 0000</p>
+            <form mehtod="POST" action="{% url 'contact_form' %}">
+                <input type="text" name="name" id="name">
+                <input type="email" name="email" id="email">
+                <input type="submit" name="submit" id="submit">
+            </form>
         </main>
         <footer>
             <p>Mon-Fri: 11:00-21:00, Sat-Sun: 10:00-22:00</p>
