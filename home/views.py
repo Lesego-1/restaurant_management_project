@@ -17,3 +17,6 @@ def menu_item_view(request):
     items = MenuItem.objects.all()
     serializer = MenuItemSerializer(items, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
+
+def feedback_form(request):
+    return render(request, "feeback_form.html")
