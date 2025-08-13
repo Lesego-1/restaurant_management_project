@@ -4,6 +4,8 @@ from .serializers import MenuItemSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
 
 def display_home_page_view(request):
     try:
@@ -20,3 +22,15 @@ def menu_item_view(request):
 
 def feedback_form_view(request):
     return render(request, "feeback_form.html")
+
+def contact_form_view(request):
+    try:
+        name = request.GET['name']
+        email = request.GET['email']
+        validate_email(email)
+        
+        return Response("We will reach out to you to to fix your problem.", status=status.HTTP_200_OK)
+    except KeyError:
+        return Response("Invalid credentials.", status=status.HTTP_400_BAD_REQUEST)
+    except ValidationError:
+        return Response("Email does not exist.", status=status.HTTP_404_NOT_FOUND)
