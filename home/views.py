@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
 
-def display_home_page_name(request):
+def display_home_page_view(request):
     try:
         restaurant = Restaurant.objects.first()
         return render(request, "homepage.html", {"restaurant_name":restaurant.name, 'restaurant_phone_number':restaurant.phone_number})
