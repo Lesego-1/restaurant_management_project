@@ -10,7 +10,9 @@ from django.core.exceptions import ValidationError
 def display_home_page_view(request):
     try:
         restaurant = Restaurant.objects.first()
-        return render(request, "homepage.html", {"restaurant_name":restaurant.name, 'restaurant_phone_number':restaurant.phone_number})
+        return render(request, "homepage.html", {"restaurant_name":restaurant.name, 
+        'restaurant_phone_number':restaurant.phone_number,
+        'menu_items', MenuItem.objects.all()})
     except Restaurant.DoesNotExist:
         return render(request, "homepage.html")
 
