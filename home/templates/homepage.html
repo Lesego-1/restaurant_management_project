@@ -11,8 +11,13 @@
             <input type="text" name='search_bar' id="search_bar" placeholder="Search items by name">
         </nav>
         <main>
-            <h1>{{hoempagename}}</h1>
+            <h1>Home</h1>
             <p>This is the restaurant management system. You can manage all the different parts of your restaurant from here.</p>
+            <ul>
+            {% for menu_item in menu_items %}
+                <li>{{menu_item.name}}: ${{menu_item.price}}</li>
+            {% endfor %}
+            </ul>
         </main>
         <footer>
             <p>Mon-Fri: 11:00-21:00, Sat-Sun: 10:00-22:00</p>
