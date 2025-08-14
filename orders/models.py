@@ -1,3 +1,5 @@
 from django.db import models
+from home.models import UserProfile
 
-# Create your models here.
+class Orders(models.Orders):
+    # Customer, order_items, total_amnt, order_status
