@@ -6,4 +6,4 @@ class UserProfile(models.Model):
     phone_number = models.IntegerField()
 
     def __str__(self):
-        return user
+        return self.user
