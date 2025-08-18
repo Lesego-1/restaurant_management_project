@@ -10,3 +10,12 @@ class MenuItem(models.Model):
 
     def __str__(self):
         return f"{self.name}: ${self.price}"
+
+class RestaurantLocation(models.Model):
+    address = models.TextField()
+    city = models.CharField(max_length=100)
+    state = models.CharField(max_length=100)
+    zip_code = models.IntegerField()
+
+    def __str__(self):
+        return f"Restaurant address: {self.address}"
