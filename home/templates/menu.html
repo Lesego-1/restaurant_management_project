@@ -10,6 +10,7 @@
         <ul>
         {% for menu_item in menu %}
             <li>{{menu_item.image}}</li>
+            <li>{{menu_item.name}}: ${{menu_item.price}}</li>
             <li></li>
         {% endfor %}
         </ul>
