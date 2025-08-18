@@ -22,7 +22,7 @@
             {% endfor %}
             </ul>
         </main>
-        <section>
+        <section class="google_maps">
             <iframe
             width="600"
             height="450"
@@ -32,6 +32,13 @@
             referrerpolicy="no-refferer-when-downgrade"
             src="https://www.google.com/maps/embed/v1/place?key={{ GOOGLE_MAPS_API_KEY }}&q={{ restaurant_location.adress|urlencode }}">
             </iframe>
+        </section>
+        <section class="contact_section">
+            <form method="POST" action="{% url 'contact_us' %}">
+                <input type="text" id="name" name="name">
+                <input type="email" id="email" name="email">
+                <input type="submit" id="submit" name="submit">
+            </form>
         </section>
         <footer>
             <p>Restaurant Address: {{restaurant_location.address}}</p>
