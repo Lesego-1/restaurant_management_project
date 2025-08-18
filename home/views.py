@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Restaurant, MenuItem, Contact
+from .models import Restaurant, MenuItem, Contact, RestaurantLocation
 from .serializers import MenuItemSerializer
 from rest_framework.response import Response
 from rest_framework import status
@@ -10,9 +10,12 @@ from django.core.exceptions import ValidationError
 def display_home_page_view(request):
     try:
         restaurant = Restaurant.objects.first()
-        return render(request, "homepage.html", {"restaurant_name":restaurant.name, 
-        'restaurant_phone_number':restaurant.phone_number,
-        'menu_items', MenuItem.objects.all()})
+        return render(request, "homepage.html", {
+            "restaurant_name":restaurant.name, 
+            'restaurant_phone_number':restaurant.phone_number,
+            'menu_items', MenuItem.objects.all(),
+            "restaurant_location": RestaurantLocation.objects.first()
+        })
     except Restaurant.DoesNotExist:
         return render(request, "homepage.html")
 
