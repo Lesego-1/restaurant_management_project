@@ -5,6 +5,7 @@ class MenuItem(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     price = models.DecimalField(decimal_places=2, max_digits=10)
+    image = models.ImageField()  # Add image field to allow users to input images
     is_available = models.BooleanField(default=True)  # Set default availability to True
     created_at = models.DateTimeField(auto_now_add=True)
 
