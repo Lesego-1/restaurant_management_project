@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Restaurant, MenuItem
+from .models import Restaurant, MenuItem, Contact
 from .serializers import MenuItemSerializer
 from rest_framework.response import Response
 from rest_framework import status
@@ -36,3 +36,9 @@ def contact_form_view(request):
         return Response("Invalid credentials.", status=status.HTTP_400_BAD_REQUEST)
     except ValidationError:
         return Response("Email does not exist.", status=status.HTTP_404_NOT_FOUND)
+
+    # If there are no errors store in contact model
+    Contact.objects.create({
+        'name':name,
+        'email':email,
+    })
