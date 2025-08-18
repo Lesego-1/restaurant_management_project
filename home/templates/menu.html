@@ -9,9 +9,11 @@
         <h1>Menu</h1>
         <ul>
         {% for menu_item in menu %}
-            <li>{{menu_item.image}}</li>
-            <li>{{menu_item.name}}: ${{menu_item.price}}</li>
-            <li></li>
+            <div class="menu_item">
+                <li>{{menu_item.image}}</li>
+                <li>{{menu_item.name}}: ${{menu_item.price}}</li>
+                <li>{{menu_item.details}}</li>
+            </div>
         {% endfor %}
         </ul>
     </body>
