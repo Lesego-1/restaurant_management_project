@@ -22,6 +22,17 @@
             {% endfor %}
             </ul>
         </main>
+        <section>
+            <iframe
+            width="600"
+            height="450"
+            style="border:0"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-refferer-when-downgrade"
+            src="https://www.google.com/maps/embed/v1/place?key={{ GOOGLE_MAPS_API_KEY }}&q={{ restaurant_location.adress|urlencode }}">
+            </iframe>
+        </section>
         <footer>
             <p>Restaurant Address: {{restaurant_location.address}}</p>
             <p>Mon-Fri: 11:00-21:00, Sat-Sun: 10:00-22:00</p>
