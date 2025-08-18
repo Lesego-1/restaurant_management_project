@@ -3,9 +3,9 @@ from django.db import models
 class MenuItem(models.Model):
     restaurant = models.CharField(max_length=100, blank=True)
     name = models.CharField(max_length=100)
-    description = models.TextField()
+    description = models.TextField(blank=True)
     price = models.DecimalField(decimal_places=2, max_digits=10)
-    image = models.ImageField()  # Add image field to allow users to input images
+    image = models.ImageField()
     is_available = models.BooleanField(default=True)  # Set default availability to True
     created_at = models.DateTimeField(auto_now_add=True)
 
