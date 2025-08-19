@@ -17,6 +17,7 @@ class RestaurantLocation(models.Model):
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     zip_code = models.IntegerField()
+    opening_hours = 
 
     def __str__(self):
         return f"Restaurant address: {self.address}"
