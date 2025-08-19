@@ -17,7 +17,8 @@ class RestaurantLocation(models.Model):
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     zip_code = models.IntegerField()
-    opening_hours = 
+    opening_hours = models.TimeField(auto_now_add=False)
+    closing_hours = models.TimeField(auto_now_add=False)
 
     def __str__(self):
         return f"Restaurant address: {self.address}"
