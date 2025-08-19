@@ -17,8 +17,8 @@
             <h2>Menu Items:</h2>
             <ul>
             {% for menu_item in menu_items %}
-                <li>{{menu_item.image}}</li>
                 <li>{{menu_item.name}}: ${{menu_item.price}}</li>
+                <li>{{menu_item.image}}</li>
                 <li>{{menu_item.details}}</li>
             {% endfor %}
             </ul>
