@@ -6,6 +6,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
+from django.shortcuts import get_object_or_404
 
 def display_home_page_view(request):
     try:
@@ -50,3 +51,8 @@ def contact_form_view(request):
         'email':email,
     })
 
+def search_menu_view(request, pk):
+    menu_item = get_object_or_404(MenuItem, pk=pk)
+    if serializer.is_valid():
+        return render(request, "homepage.html", "menu_items":menu_item,)
+    return render(request, "homepage.html")
