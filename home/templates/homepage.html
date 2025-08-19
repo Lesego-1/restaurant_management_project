@@ -8,7 +8,9 @@
     <body>
         <nav>
             <img src="{% static 'homepage_logo.png' %}" alt="Company Logo" id="logo">
-            <input type="text" name='search_bar' id="search_bar" placeholder="Search items by name">
+            <form method="GET" action="{% url 'search_menu' %}">
+                <input type="text" name='search_bar' id="search_bar" placeholder="Search items by name">
+            </form>
         </nav>
         <main>
             <h1>{{restaurant_name}}</h1>
