@@ -49,3 +49,4 @@ def contact_form_view(request):
         'name':name,
         'email':email,
     })
+
