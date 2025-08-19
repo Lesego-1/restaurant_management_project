@@ -11,11 +11,14 @@ def display_home_page_view(request):
     try:
         restaurant = Restaurant.objects.first()
         restaurant_location = RestaurantLocation.objects.first()
+        open_close_hours = Contact.objects.first()
         return render(request, "homepage.html", {
             "restaurant_name":restaurant.name, 
             'restaurant_phone_number':restaurant.phone_number,
             'menu_items', MenuItem.objects.all(),
-            "restaurant_address": restaurant_location.address
+            "restaurant_address": restaurant_location.address,
+            "opening_hours":open_close_hours.opening_hours,
+            "closing_hours":open_close_hours.closing_hours
         })
     except Restaurant.DoesNotExist:
         return render(request, "homepage.html")
