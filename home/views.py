@@ -43,6 +43,7 @@ def contact_form_view(request):
     try:
         name = request.GET['name']
         email = request.GET['email']
+        message = request.GET['msg']
         validate_email(email)
         
         return Response("We will reach out to you to to fix your problem.", status=status.HTTP_200_OK)
@@ -51,10 +52,11 @@ def contact_form_view(request):
     except ValidationError:
         return Response("Email does not exist.", status=status.HTTP_404_NOT_FOUND)
 
-    # If there are no errors store in contact model
+    # If there are no errors, store information in contact model
     Contact.objects.create({
         'name':name,
         'email':email,
+        'message':message
     })
 
 def search_menu_view(request, pk):
