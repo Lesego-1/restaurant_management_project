@@ -19,6 +19,7 @@ class RestaurantLocation(models.Model):
     zip_code = models.IntegerField()
     opening_hours = models.TimeField(auto_now_add=False)
     closing_hours = models.TimeField(auto_now_add=False)
+    phone_number = models.IntegerField()
 
     def __str__(self):
         return f"Restaurant address: {self.address}"
