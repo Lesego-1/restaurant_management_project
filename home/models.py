@@ -20,6 +20,7 @@ class RestaurantLocation(models.Model):
     opening_hours = models.TimeField(auto_now_add=False)
     closing_hours = models.TimeField(auto_now_add=False)
     phone_number = models.IntegerField()
+    logo = models.ImageField()
 
     def __str__(self):
         return f"Restaurant address: {self.address}"
