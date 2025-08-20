@@ -14,6 +14,7 @@ def display_home_page_view(request):
         restaurant_location = RestaurantLocation.objects.first()
         open_close_hours = Contact.objects.first()
         phone_number = RestaurantLocation.objects.first().phone_number
+        logo = RestaurantLocation.objects.first().logo
         return render(request, "homepage.html", {
             "restaurant_name":restaurant.name, 
             'restaurant_phone_number':restaurant.phone_number,
@@ -21,7 +22,8 @@ def display_home_page_view(request):
             "restaurant_address": restaurant_location.address,
             "opening_hours":open_close_hours.opening_hours,
             "closing_hours":open_close_hours.closing_hours,
-            "phone_number":phone_number
+            "phone_number":phone_number,
+            "logo":logo
         })
     except Restaurant.DoesNotExist:
         return render(request, "homepage.html")
