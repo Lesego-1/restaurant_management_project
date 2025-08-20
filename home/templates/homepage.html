@@ -26,6 +26,13 @@
             {% endfor %}
             {% endif %}
             </ul>
+
+            <h2>Items in Cart:</h2>
+            <ul>
+                {% for cart_item in cart_items %}
+                <li>Name:{{cart_item.name}}, Price:{{cart_item.price}}</li>
+                {% endfor %}
+            </ul>
         </main>
         <section class="google_maps">
             <iframe
