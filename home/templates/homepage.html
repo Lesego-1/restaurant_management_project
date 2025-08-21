@@ -7,6 +7,11 @@
     </head>
     <body>
         <nav>
+            <a href="{% url 'about' %}" class="nav-button">About</a>
+            <a href="{% url 'feedback_form'%}" class="nav-button">FAQ</a>
+            <a href="{% url 'menu' %}" class="nav-button">Menu</a>
+            <a href="{% url 'reservations'%}" class="nav-button">Reservations</a>
+            <a href="{% url 'feedback' %}" class="nav-button">Contact</a>
             <img src="{% static 'logo.png' %}" alt="Company Logo" id="logo">
             <form method="GET" action="{% url 'search_menu' %}">
                 <input type="text" name='search_bar' id="search_bar" placeholder="Search items by name">
