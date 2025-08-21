@@ -6,3 +6,8 @@ class MenuItemSerializer(serializers.ModelSerializer):
         model = MenuItem
         fields = ['id', 'restaurant', 'name', 'description', 'price', 'is_available', 'created_at']
         read_only_fields = ['created_at']
+
+class FAQSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FAQ
+        fields = ['id', 'title', ]
