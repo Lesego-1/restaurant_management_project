@@ -25,7 +25,8 @@ def display_home_page_view(request):
             "closing_hours":open_close_hours.closing_hours,
             "phone_number":phone_number,
             "logo":logo,
-            "cart_items":cart_items
+            "cart_items":cart_items,
+            "current_time":open_close_hours.time
         })
     except Restaurant.DoesNotExist:
         return render(request, "homepage.html")
