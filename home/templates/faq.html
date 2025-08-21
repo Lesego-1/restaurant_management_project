@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'faq_styles.css' %}">
+        <title>FAQ</title>
+    </head>
+    <body>
+        <nav>
+            <h1>Restaurant Management</h1>
+            <a href="{% url 'home' %}" class="nav-button">Home</a>
+        </nav>
+        <main>
+            {% for faq in faq_objects %}
+            <h2>{{faq.title}}</h2>
+            <form method="post" action="{% url 'faq_view' %}">
+                <input type="text" id="text" name="text">
+                <input type="submit" id="submit" name="submit"> 
+            </form>
+            {% endfor %}
+        </main>
+    </body>
+</html>
