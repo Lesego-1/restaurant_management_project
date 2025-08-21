@@ -10,4 +10,5 @@ class MenuItemSerializer(serializers.ModelSerializer):
 class FAQSerializer(serializers.ModelSerializer):
     class Meta:
         model = FAQ
-        fields = ['id', 'title', ]
+        fields = ['id', 'title', 'body']
+        
