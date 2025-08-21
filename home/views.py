@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .models import Restaurant, MenuItem, Contact, RestaurantLocation, CartItem
-from .serializers import MenuItemSerializer
+from .models import Restaurant, MenuItem, Contact, RestaurantLocation, CartItem, FAQ
+from .serializers import MenuItemSerializer, FAQSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
@@ -61,6 +61,14 @@ def contact_form_view(request):
 
 def search_menu_view(request, pk):
     menu_item = get_object_or_404(MenuItem, pk=pk)
+    serializer = MenuItemSerializer(menu_item)
     if serializer.is_valid():
         return render(request, "homepage.html", "menu_items":menu_item,)
     return render(request, "homepage.html")
+
+def faq_view(request, pk):
+    faq = get_object_or_404(FAQ, pk=pk)
+    serializer = FAQSerializer(faq)
+    if serializer.is_valid():
+        return render(request, "faq.html", {"faq":faq})
+    return render(request, "faq.html")
