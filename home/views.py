@@ -66,9 +66,9 @@ def search_menu_view(request, pk):
         return render(request, "homepage.html", "menu_items":menu_item,)
     return render(request, "homepage.html")
 
-def faq_view(request, pk):
-    faq = get_object_or_404(FAQ, pk=pk)
-    serializer = FAQSerializer(faq)
+def faq_view(request):
+    faq = FAQ.objects.all()
+    serializer = FAQSerializer(faq, many=True)
     if serializer.is_valid():
-        return render(request, "faq.html", {"faq":faq})
+        return render(request, "faq.html", {"faq_objects":faq})
     return render(request, "faq.html")
