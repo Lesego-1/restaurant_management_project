@@ -50,7 +50,7 @@ class FAQBody(models.Model):
 
 class FAQ(models.Model):
     title = models.CharField(max_length=100)
-    body = models.One
+    body = models.OneToOneField(FAQBody, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
