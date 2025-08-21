@@ -11,4 +11,4 @@ class FAQSerializer(serializers.ModelSerializer):
     class Meta:
         model = FAQ
         fields = ['id', 'title', 'body']
-        
+        read_only_fields = ['id']
