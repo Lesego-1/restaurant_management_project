@@ -21,10 +21,13 @@
             <h1>{{restaurant_name}}</h1>
             <p>{{current_time}}</p>
             <p>Welcome to the Perpex Restaurant Management System</p>
+            <img src="{% static 'seafood.png' %}" class="extra_images">
             <p>This is the restaurant management system. You can manage all the different parts of your restaurant from here.</p>
             <p>Restaurant Address: {{restaurant_address}}</p>
             <p>Restaurnat Number: {{phone_number}}</p>
             <h2>Menu Items:</h2>
+            <img src="{% static 'beef_wellington.png' %}">
+            <p>You can choose from a variety of our world class dishes:</p>
             <ul>
             {% if menu_items %}
             {% for menu_item in menu_items %}
