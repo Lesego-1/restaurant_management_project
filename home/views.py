@@ -7,6 +7,7 @@ from rest_framework.decorators import api_view
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 from django.shortcuts import get_object_or_404
+from products.models import Special
 
 def display_home_page_view(request):
     try:
@@ -26,7 +27,8 @@ def display_home_page_view(request):
             "phone_number":phone_number,
             "logo":logo,
             "cart_items":cart_items,
-            "current_time":open_close_hours.time
+            "current_time":open_close_hours.time,
+            "specials":Special.objects.all()
         })
     except Restaurant.DoesNotExist:
         return render(request, "homepage.html")
