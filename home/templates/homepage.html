@@ -37,6 +37,12 @@
             {% endfor %}
             {% endif %}
             </ul>
+            <h2>These are today's sepecials</h2>
+            <ul>
+                {% for special in specials %}
+                <li>{{special.item.item_name}}: {{special.item.price}}</li>
+                {% endfor %}
+            </ul>
 
             <h2>Items in Cart:</h2>
             <ul>
