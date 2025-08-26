@@ -26,5 +26,5 @@ class ItemView(APIView):
 def cart_view(request):
     user_cart = Cat.objects.filter(user=request.user)
     if user_cart:
-        
+        queryset = Item.objects.filter()
     return render(request, "cart.html")
