@@ -24,7 +24,16 @@ class ItemView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 def cart_view(request):
-    user_cart = Cat.objects.filter(user=request.user)
+    user_cart = Cart.objects.filter(user=request.user)
     if user_cart:
-        queryset = Item.objects.filter()
+        queryset = Item.objects.filter(cart.user=request.user)
+        serializer = ItemSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            Response(serializer.errors)
+    Cart.objects.create(
+        user = request.user
+    )
     return render(request, "cart.html")
