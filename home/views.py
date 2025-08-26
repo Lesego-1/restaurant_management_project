@@ -74,3 +74,6 @@ def faq_view(request):
     if serializer.is_valid():
         return render(request, "faq.html", {"faq_objects":faq})
     return render(request, "faq.html")
+
+def privacy_policy_view(request):
+    return render(request, "privacy_policy.html")
