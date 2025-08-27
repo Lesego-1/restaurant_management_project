@@ -10,3 +10,6 @@ def get_menu(request):
     queryset = MenuItem
     serializer = MenuItemSerializer(queryset, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
+
+def order_confirmation_view(request, pk):
+    order = Ord
