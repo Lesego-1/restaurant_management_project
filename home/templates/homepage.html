@@ -51,6 +51,11 @@
                 <li>Name:{{cart_item.name}}, Price:{{cart_item.price}}</li>
                 {% endfor %}
             </ul>
+            <a href="{% url 'order_placement' %}">
+                <label for="order_now">Order Now
+                    <input id="order_now" type="button">
+                </label>
+            </a>
         </main>
         <section class="google_maps">
             <iframe
