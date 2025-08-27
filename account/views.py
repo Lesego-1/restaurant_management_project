@@ -15,7 +15,8 @@ def login_view(request):
         except ValidationError:
             return Response("Invalid email format.", status=status.HTTP_400_BAD_REQUEST)
         
-    if len(password) < 8:
-        return Response("Password must be at least 8 characters", status=status.HTTP_400_BAD_REQUEST)
+        if len(password) < 8:
+            return Response("Password must be at least 8 characters", status=status.HTTP_400_BAD_REQUEST)
     
-    return redirect('menu')  # If valid information, then redirect to menu
+        return redirect('menu')  # If valid information, then redirect to menu
+    return redirect('home')
