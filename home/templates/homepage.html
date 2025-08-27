@@ -18,6 +18,14 @@
                 <input type="text" name='search_bar' id="search_bar" placeholder="Search items by name">
             </form>
         </nav>
+        <section class="login">
+            <form method="POST" action="{% url 'login' %}">
+                <input type="text" id="username" name="username">
+                <input type="email" id="email" name="email">
+                <input type="password" id="password" name="password">
+                <input type="submit" id="submit" name="submit">
+            </form>
+        </section>
         <main>
             <h1>{{restaurant_name}}</h1>
             <p>{{current_time}}</p>
