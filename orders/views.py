@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from rest_framework import status
 from rest_framework.response import Response 
 from rest_framework.decorators import api_view
@@ -13,4 +13,6 @@ def get_menu(request):
 
 def order_confirmation_view(request, pk):
     order = Order.objects.filter(pk=pk)
-    if order.
+    if order.order_status == True:
+        return render(request, 'order_confirmation.html', {'order_number':order.id})
+    return redirect('home')
