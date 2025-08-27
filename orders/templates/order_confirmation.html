@@ -1,0 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'order_confirmation_styles.css' %}">
+        <title>Order Confirmation</title>
+    </head>
+    <body>
+        <main>
+            <h1>Order Confirmation</h1>
+            <p>Your order: {{order_number}}, is being processed.</p>
+        </main>
+    </body>
+</html>
