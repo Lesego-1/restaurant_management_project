@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Restaurant, MenuItem, Contact, RestaurantLocation, CartItem, FAQ
 from .serializers import MenuItemSerializer, FAQSerializer
 from rest_framework.response import Response
@@ -58,7 +58,7 @@ def contact_form_view(request):
         "email":email,
         "message":message
     )
-    return Response("We will reach out to you to to fix your problem.", status=status.HTTP_200_OK)
+    return redirect('thank_you')
 
 def search_menu_view(request, pk):
     menu_item = get_object_or_404(MenuItem, pk=pk)
@@ -76,3 +76,6 @@ def faq_view(request):
 
 def privacy_policy_view(request):
     return render(request, "privacy_policy.html")
+
+def thank_you_page_view(request):
+    return render(request, "thank_you.html")
