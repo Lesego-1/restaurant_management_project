@@ -43,23 +43,22 @@ def feedback_form_view(request):
     return render(request, "feeback_form.html")
 
 def contact_form_view(request):
+    name = request.GET['name']
+    email = request.GET['email']
+    message = request.GET['msg']
     try:
-        name = request.GET['name']
-        email = request.GET['email']
-        message = request.GET['msg']
         validate_email(email)
-
-        Contact.objects.create(
-            "name":name,
-            "email":email,
-            "message":message
-        )
-        
-        return Response("We will reach out to you to to fix your problem.", status=status.HTTP_200_OK)
     except KeyError:
-        return Response("Invalid credentials.", status=status.HTTP_400_BAD_REQUEST)
+        return Response("Invalid Credentials", status=status.HTTP_400_BAD_REQUEST)
     except ValidationError:
-        return Response("Email does not exist.", status=status.HTTP_404_NOT_FOUND)
+        return Response("Email does not exist." status=status.HTTP_404_NOT_FOUND)
+    
+    Contact.objects.create(
+        "name":name,
+        "email":email,
+        "message":message
+    )
+    return Response("We will reach out to you to to fix your problem.", status=status.HTTP_200_OK)
 
 def search_menu_view(request, pk):
     menu_item = get_object_or_404(MenuItem, pk=pk)
