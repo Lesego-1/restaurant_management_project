@@ -41,8 +41,8 @@
             <img src="{% static 'beef_wellington.png' %}" alt="beef wellington">
             <p>You can choose from a variety of our world class dishes:</p>
             <ul>
-            {% if menu_items %}
-            {% for menu_item in menu_items %}
+            {% if page_obj %}
+            {% for menu_item in page_obj %}
                 <li>{{menu_item.name}}: ${{menu_item.price}}</li>
                 <li>{{menu_item.image}}</li>
                 <li>{{menu_item.details}}</li>
