@@ -8,6 +8,7 @@ from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 from django.shortcuts import get_object_or_404
 from products.models import Special
+from django.core.paginator import Paginator
 
 def display_home_page_view(request):
     try:
@@ -18,6 +19,10 @@ def display_home_page_view(request):
         logo = RestaurantLocation.objects.first().logo
         cart_items = get_object_or_404(CartItem, owner=request.user)
         chef = AboutTheChef.objects.first()
+        menu = MenuItem.objects.all().order_by("-created_by")
+        paginator = Paginator(menu, 10)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
         return render(request, "homepage.html", {
             "restaurant_name":restaurant.name, 
             'restaurant_phone_number':restaurant.phone_number,
@@ -32,6 +37,7 @@ def display_home_page_view(request):
             "specials":Special.objects.all(),
             "chef_name":chef.name,
             "chef_bio":chef.bio,
+            "page_obj":page_obj,
         })
     except Restaurant.DoesNotExist:
         return render(request, "homepage.html")
