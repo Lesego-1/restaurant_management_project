@@ -10,9 +10,13 @@
         <ul>
         {% for menu_item in menu %}
             <div class="menu_item">
+                {% if menu_item.is_available %}
                 <li>{{menu_item.image}}</li>
                 <li>{{menu_item.name}}: ${{menu_item.price}}</li>
                 <li>{{menu_item.details}}</li>
+                {% else %}
+                <li>{{menu_item.name}} is coming soon</li>
+                {% endif %}
             </div>
         {% endfor %}
         </ul>
