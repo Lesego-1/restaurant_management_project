@@ -56,3 +56,11 @@ class FAQ(models.Model):
 
     def __str__(self):
         return self.title
+
+class AboutTheChef(models.Model):
+    name = models.CharField(max_length=100)
+    bio = models.TextField()
+    image = models.ImageField()
+
+    def __str__(self):
+        return self.name
