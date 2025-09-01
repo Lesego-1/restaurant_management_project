@@ -5,6 +5,7 @@ from rest_framework.decorators import api_view
 from .models import MenuItem, Order
 from .serializer import MenuItemSerializer
 
+
 @api_view(["GET"])
 def get_menu(request):
     queryset = MenuItem
