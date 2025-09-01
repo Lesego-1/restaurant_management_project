@@ -32,6 +32,7 @@ class Contact(models.Model):
     email = models.EmailField()
     message = models.TextField()
     time = datetime.now()
+    about_us = models.TextField()
 
     def __str__(self):
         return self.name
