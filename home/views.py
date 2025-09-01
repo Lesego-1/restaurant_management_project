@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Restaurant, MenuItem, Contact, RestaurantLocation, CartItem, FAQ
+from .models import Restaurant, MenuItem, Contact, RestaurantLocation, CartItem, FAQ, AboutTheChef
 from .serializers import MenuItemSerializer, FAQSerializer
 from rest_framework.response import Response
 from rest_framework import status
@@ -17,6 +17,7 @@ def display_home_page_view(request):
         phone_number = RestaurantLocation.objects.first().phone_number
         logo = RestaurantLocation.objects.first().logo
         cart_items = get_object_or_404(CartItem, owner=request.user)
+        chef = AboutTheChef.objects.first()
         return render(request, "homepage.html", {
             "restaurant_name":restaurant.name, 
             'restaurant_phone_number':restaurant.phone_number,
@@ -28,7 +29,9 @@ def display_home_page_view(request):
             "logo":logo,
             "cart_items":cart_items,
             "current_time":open_close_hours.time,
-            "specials":Special.objects.all()
+            "specials":Special.objects.all(),
+            "chef_name":chef.name,
+            "chef_bio":chef.bio,
         })
     except Restaurant.DoesNotExist:
         return render(request, "homepage.html")
