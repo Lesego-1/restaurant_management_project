@@ -88,3 +88,6 @@ def privacy_policy_view(request):
 
 def thank_you_page_view(request):
     return render(request, "thank_you.html")
+
+def about_us_view(request):
+    return (request, 'about_us.html', {'description':open_close_hours.about_us})
