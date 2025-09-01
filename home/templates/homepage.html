@@ -55,6 +55,10 @@
                 <li>{{special.item.item_name}}: {{special.item.price}}</li>
                 {% endfor %}
             </ul>
+            <h2>About the Chef</h2>
+            <p>Name: {{chef_name}}</p>
+            <p>Bio: {{chef_bio}}</p>
+            <img href="{% static 'chef_image.png' %}" alt="chef's face">
 
             <h2>Items in Cart:</h2>
             <ul>
