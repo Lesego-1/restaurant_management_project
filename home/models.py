@@ -65,3 +65,9 @@ class AboutTheChef(models.Model):
 
     def __str__(self):
         return self.name
+
+class NewsLetter(models.Model):
+    email = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return email
