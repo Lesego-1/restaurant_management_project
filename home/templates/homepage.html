@@ -92,6 +92,11 @@
                 <input type="submit" id="submit" name="submit">
             </form>
         </section>
+        <h2>Subscribe to our Newsletter</h2>
+        <form method="POST" action="{% url 'newsletter' %}" class="block">
+            <input type="email" name="email" id="email">
+            <input type="submit" name="submit" id="submit">
+        </form>
         <footer>
             <p>Restaurant Phone Number: {{phone_number}}</p>
             <a href="{% url 'privacy_policy' %}">Privay Policy</a>
