@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Restaurant, MenuItem, Contact, RestaurantLocation, CartItem, FAQ, AboutTheChef
+from .models import Restaurant, MenuItem, Contact, RestaurantLocation, CartItem, FAQ, AboutTheChef, NewsLetter
 from .serializers import MenuItemSerializer, FAQSerializer
 from rest_framework.response import Response
 from rest_framework import status
@@ -90,4 +90,7 @@ def thank_you_page_view(request):
     return render(request, "thank_you.html")
 
 def about_us_view(request):
-    return (request, 'about_us.html', {'description':open_close_hours.about_us})
+    return render(request, 'about_us.html', {'description':open_close_hours.about_us})
+
+def news_letter_view(request):
+    NewsLetter.objects.create(email=request.POST['email'])
