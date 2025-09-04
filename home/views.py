@@ -99,3 +99,8 @@ def news_letter_view(request):
 
 def our_story_view(request):
     return render(request, "our_story.html")
+
+def menu_search(request):
+    search_item = request.data['menu_search']
+    queryset = MenuItem.objects.filter(name=search_item)
+    return render(request, 'menu.html', {'menu_items':queryset})
