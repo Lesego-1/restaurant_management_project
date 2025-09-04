@@ -96,3 +96,6 @@ def about_us_view(request):
 
 def news_letter_view(request):
     NewsLetter.objects.create(email=request.POST['email'])
+
+def our_story_view(request):
+    return render(request, "our_story.html")
