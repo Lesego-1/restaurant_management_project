@@ -9,6 +9,7 @@ from django.core.exceptions import ValidationError
 from django.shortcuts import get_object_or_404
 from products.models import Special
 from django.core.paginator import Paginator
+import time
 
 def display_home_page_view(request):
     try:
@@ -38,6 +39,7 @@ def display_home_page_view(request):
             "chef_name":chef.name,
             "chef_bio":chef.bio,
             "page_obj":page_obj,
+            "year": time.year(),
         })
     except Restaurant.DoesNotExist:
         return render(request, "homepage.html")
