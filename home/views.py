@@ -89,7 +89,7 @@ def privacy_policy_view(request):
     return render(request, "privacy_policy.html")
 
 def thank_you_page_view(request):
-    return render(request, "thank_you.html")
+    return render(request, "thank_you.html", {'email':request.user.email})
 
 def about_us_view(request):
     return render(request, 'about_us.html', {'description':open_close_hours.about_us})
