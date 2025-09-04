@@ -7,6 +7,9 @@
     </head>
     <body>
         <h1>Menu</h1>
+        <form method="GET" action="{% url 'menu_search' %}">
+            <input type="text" id="menu_search" name="menu_search">
+        </form>
         <ul>
         {% for menu_item in menu %}
             <div class="menu_item">
