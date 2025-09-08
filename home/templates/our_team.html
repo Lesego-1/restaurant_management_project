@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" stylesheet="{% static 'our_team_styles.css' %}">
+        <title>Our Team</title>
+    </head>
+    <body>
+        <main>
+            <h1>Meet our team></h1>
+            {% for member in team %}
+            {{member.image}}
+            <p>{{member.name}}</p>
+            <p>{{member.description}}</p>
+            {% endfor %}
+        </main>
+    </body>
+</html>
