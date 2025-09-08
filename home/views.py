@@ -9,6 +9,7 @@ from django.core.exceptions import ValidationError
 from django.shortcuts import get_object_or_404
 from products.models import Special
 from django.core.paginator import Paginator
+from django.core.auth.models import User
 import time
 
 def display_home_page_view(request):
@@ -107,3 +108,6 @@ def menu_search(request):
 
 def reservations_view(request):
     return render(request, 'reservations.html')
+
+def our_team_view(request):
+    return render(request, 'our_team.html', {'team':User.objects.all()})
