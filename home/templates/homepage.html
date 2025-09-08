@@ -99,6 +99,7 @@
         </form>
         <footer>
             <p>Restaurant Phone Number: {{phone_number}}</p>
+            <a href="{% url 'reservations' %}">Reservations</a>
             <a href="{% url 'privacy_policy' %}">Privay Policy</a>
             <p class="footer_opening_closing_times">Mon-Fri: {{opening_hours}}-{{closing_hours}}, Sat-Sun: {{opening_hours}}-{{closing_hours}}</p>
             <p>{{year}}, &copy Perpex Restaurant Management, All Rights Reserved.</p>
