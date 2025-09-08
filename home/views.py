@@ -54,6 +54,9 @@ def menu_item_view(request):
 def feedback_form_view(request):
     return render(request, "feeback_form.html")
 
+def contact_us_view(request):
+    return render(request, 'contact_us.html', {'opening_hours':open_close_hours.opening_hours})
+
 def contact_form_view(request):
     name = request.GET['name']
     email = request.GET['email']
