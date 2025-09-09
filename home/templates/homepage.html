@@ -31,7 +31,7 @@
         </section>
         <section id="carousel slide" data-bs-ride="carousel">
             <div class="carousel-item">
-            {% for image in images %}
+            {% for item.image in menu_items %}
                 <img src="{{image.image.url}}" class="d-block w-100" alt="{{image.caption}}">
             {% endfor %}
             </div>
