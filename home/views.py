@@ -41,6 +41,7 @@ def display_home_page_view(request):
             "chef_bio":chef.bio,
             "page_obj":page_obj,
             "year": time.year(),
+            "images":
         })
     except Restaurant.DoesNotExist:
         return render(request, "homepage.html")
