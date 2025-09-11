@@ -15,7 +15,6 @@
 .block {
     display: block;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.167);
 }
 footer {
     display: flex;
@@ -25,4 +24,5 @@ footer {
 form {
     border: 1px black;
     border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.167);
 }
