@@ -9,11 +9,11 @@
         <main>
             <h1>Contact Us</h1>
             <p>For any kind of support, feel free to contact us at <a type="email" href="support@restaurantmanagement.com">support@restaurantmanagement.com</a> or call 000 000 0000</p>
-            <form mehtod="POST" action="{% url 'contact_form' %}" class="block">
-                <input type="text" name="name" id="name">
-                <input type="email" name="email" id="email">
-                <input type="text" name="msg" id="msg">
-                <input type="submit" name="submit" id="submit">
+            <form mehtod="POST" action="{% url 'contact_form' %}">
+                <input type="text" name="name" id="name" class="block">
+                <input type="email" name="email" id="email" class="block">
+                <input type="text" name="msg" id="msg" class="block">
+                <input type="submit" name="submit" id="submit" class="block">
             </form>
         </main>
         <footer>
